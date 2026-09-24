@@ -7,11 +7,6 @@ set -euo pipefail
 cd "$(dirname "$0")"
 
 pkgs=(python3-nautilus)
-if [[ "${XDG_SESSION_TYPE:-}" == "wayland" || -n "${WAYLAND_DISPLAY:-}" ]]; then
-    pkgs+=(wl-clipboard)
-else
-    pkgs+=(xclip)
-fi
 
 missing=()
 for p in "${pkgs[@]}"; do
